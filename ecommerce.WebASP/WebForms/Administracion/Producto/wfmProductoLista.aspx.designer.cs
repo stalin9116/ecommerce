@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ecommerce.WebASP
+namespace ecommerce.WebASP.WebForms.Administracion.Producto
 {
 
 
-    public partial class _Default
+    public partial class wfmProductoLista
     {
     }
 }
