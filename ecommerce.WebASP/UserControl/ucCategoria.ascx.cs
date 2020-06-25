@@ -49,6 +49,8 @@ namespace ecommerce.WebASP.UserControl
         {
             try
             {
+                //Llamado de función a la lógica de forma async
+
                 Task<List<TBL_CATEGORIA>> _taskCategoria = Task.Run(() => LogicaCategoria.getAllCategory());
                 _taskCategoria.Wait();
                 var _listaCategoria = _taskCategoria.Result;

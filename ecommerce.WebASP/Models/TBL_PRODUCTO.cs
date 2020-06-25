@@ -11,7 +11,8 @@ namespace ecommerce.WebASP.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class TBL_PRODUCTO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,8 @@ namespace ecommerce.WebASP.Models
         {
             this.TBL_DETALLEPEDIDO = new HashSet<TBL_DETALLEPEDIDO>();
         }
-    
+
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int pro_id { get; set; }
         public string pro_codigo { get; set; }
         public string pro_nombre { get; set; }

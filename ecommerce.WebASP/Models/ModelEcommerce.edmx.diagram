@@ -14,19 +14,19 @@
         <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_IMPUESTOS" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_PAGOS" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_PEDIDO" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_PRODUCTO" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_ROL" Width="1.5" PointX="10.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_USUARIO" Width="1.5" PointX="13" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="BDDCORDICARRITOModel.Relationship13" ManuallyRouted="false" />
         <AssociationConnector Association="BDDCORDICARRITOModel.Relationship14" ManuallyRouted="false" />
         <AssociationConnector Association="BDDCORDICARRITOModel.Relationship15" ManuallyRouted="false" />
         <AssociationConnector Association="BDDCORDICARRITOModel.Relationship10" ManuallyRouted="false" />
         <AssociationConnector Association="BDDCORDICARRITOModel.Relationship12" ManuallyRouted="false" />
         <AssociationConnector Association="BDDCORDICARRITOModel.Relationship11" ManuallyRouted="false" />
-        <AssociationConnector Association="BDDCORDICARRITOModel.Relationship8" ManuallyRouted="false" />
         <AssociationConnector Association="BDDCORDICARRITOModel.Relationship17" ManuallyRouted="false" />
         <AssociationConnector Association="BDDCORDICARRITOModel.Relationship16" ManuallyRouted="false" />
         <AssociationConnector Association="BDDCORDICARRITOModel.Relationship1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_PRODUCTO" Width="1.5" PointX="3" PointY="11.875" />
+        <AssociationConnector Association="BDDCORDICARRITOModel.Relationship13" />
+        <AssociationConnector Association="BDDCORDICARRITOModel.Relationship8" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

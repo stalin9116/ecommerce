@@ -22,6 +22,9 @@ namespace ecommerce.WebASP.Models
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<TBL_PRODUCTO>()
+            //            .Property(f => f.pro_id)
+            //            .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Computed);
             throw new UnintentionalCodeFirstException();
         }
     
@@ -34,8 +37,8 @@ namespace ecommerce.WebASP.Models
         public virtual DbSet<TBL_IMPUESTOS> TBL_IMPUESTOS { get; set; }
         public virtual DbSet<TBL_PAGOS> TBL_PAGOS { get; set; }
         public virtual DbSet<TBL_PEDIDO> TBL_PEDIDO { get; set; }
-        public virtual DbSet<TBL_PRODUCTO> TBL_PRODUCTO { get; set; }
         public virtual DbSet<TBL_ROL> TBL_ROL { get; set; }
         public virtual DbSet<TBL_USUARIO> TBL_USUARIO { get; set; }
+        public virtual DbSet<TBL_PRODUCTO> TBL_PRODUCTO { get; set; }
     }
 }

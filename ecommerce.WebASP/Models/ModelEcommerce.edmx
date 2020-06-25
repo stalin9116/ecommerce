@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BDDCORDICARRITOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BDDCORDICARRITOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TBL_CATEGORIA">
           <Key>
             <PropertyRef Name="cat_id" />
@@ -349,8 +349,7 @@
             <End Role="TBL_DETALLEPEDIDO" EntitySet="TBL_DETALLEPEDIDO" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BDDCORDICARRITOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -363,7 +362,7 @@
           <Property Name="cat_descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="cat_status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="cat_fechacreacion" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="TBL_PRODUCTO" Relationship="Self.Relationship13" FromRole="TBL_CATEGORIA" ToRole="TBL_PRODUCTO" />
+          <NavigationProperty Name="TBL_PRODUCTO" Relationship="BDDCORDICARRITOModel.Relationship13" FromRole="TBL_CATEGORIA" ToRole="TBL_PRODUCTO" />
         </EntityType>
         <EntityType Name="TBL_CLIENTE">
           <Key>
@@ -413,7 +412,7 @@
           <Property Name="ped_fecha" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TBL_DETALLEIMPUESTOS" Relationship="Self.Relationship10" FromRole="TBL_DETALLEPEDIDO" ToRole="TBL_DETALLEIMPUESTOS" />
           <NavigationProperty Name="TBL_PEDIDO" Relationship="Self.Relationship11" FromRole="TBL_DETALLEPEDIDO" ToRole="TBL_PEDIDO" />
-          <NavigationProperty Name="TBL_PRODUCTO" Relationship="Self.Relationship8" FromRole="TBL_DETALLEPEDIDO" ToRole="TBL_PRODUCTO" />
+          <NavigationProperty Name="TBL_PRODUCTO" Relationship="BDDCORDICARRITOModel.Relationship8" FromRole="TBL_DETALLEPEDIDO" ToRole="TBL_PRODUCTO" />
         </EntityType>
         <EntityType Name="TBL_DIRECCIONES">
           <Key>
@@ -492,25 +491,6 @@
           <NavigationProperty Name="TBL_DETALLEPEDIDO" Relationship="Self.Relationship11" FromRole="TBL_PEDIDO" ToRole="TBL_DETALLEPEDIDO" />
           <NavigationProperty Name="TBL_PAGOS" Relationship="Self.Relationship16" FromRole="TBL_PEDIDO" ToRole="TBL_PAGOS" />
         </EntityType>
-        <EntityType Name="TBL_PRODUCTO">
-          <Key>
-            <PropertyRef Name="pro_id" />
-          </Key>
-          <Property Name="pro_id" Type="Int32" Nullable="false" />
-          <Property Name="pro_codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="pro_nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="pro_preciocompra" Type="Decimal" Precision="8" Scale="4" Nullable="false" />
-          <Property Name="pro_precioventa" Type="Decimal" Precision="8" Scale="4" Nullable="false" />
-          <Property Name="pro_imagen" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="pro_descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="pro_stockminimo" Type="Int32" Nullable="false" />
-          <Property Name="pro_stockmaximo" Type="Int32" Nullable="false" />
-          <Property Name="pro_fechacreacion" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="pro_status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="cat_id" Type="Int16" />
-          <NavigationProperty Name="TBL_CATEGORIA" Relationship="Self.Relationship13" FromRole="TBL_PRODUCTO" ToRole="TBL_CATEGORIA" />
-          <NavigationProperty Name="TBL_DETALLEPEDIDO" Relationship="Self.Relationship8" FromRole="TBL_PRODUCTO" ToRole="TBL_DETALLEPEDIDO" />
-        </EntityType>
         <EntityType Name="TBL_ROL">
           <Key>
             <PropertyRef Name="rol_id" />
@@ -536,18 +516,6 @@
           <Property Name="rol_id" Type="Byte" Nullable="false" />
           <NavigationProperty Name="TBL_ROL" Relationship="Self.Relationship1" FromRole="TBL_USUARIO" ToRole="TBL_ROL" />
         </EntityType>
-        <Association Name="Relationship13">
-          <End Role="TBL_CATEGORIA" Type="Self.TBL_CATEGORIA" Multiplicity="0..1" />
-          <End Role="TBL_PRODUCTO" Type="Self.TBL_PRODUCTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_CATEGORIA">
-              <PropertyRef Name="cat_id" />
-            </Principal>
-            <Dependent Role="TBL_PRODUCTO">
-              <PropertyRef Name="cat_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="Relationship14">
           <End Role="TBL_CLIENTE" Type="Self.TBL_CLIENTE" Multiplicity="0..1" />
           <End Role="TBL_PEDIDO" Type="Self.TBL_PEDIDO" Multiplicity="*" />
@@ -614,18 +582,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Relationship8">
-          <End Role="TBL_PRODUCTO" Type="Self.TBL_PRODUCTO" Multiplicity="0..1" />
-          <End Role="TBL_DETALLEPEDIDO" Type="Self.TBL_DETALLEPEDIDO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_PRODUCTO">
-              <PropertyRef Name="pro_id" />
-            </Principal>
-            <Dependent Role="TBL_DETALLEPEDIDO">
-              <PropertyRef Name="pro_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="Relationship17">
           <End Role="TBL_FORMAPAGO" Type="Self.TBL_FORMAPAGO" Multiplicity="1" />
           <End Role="TBL_PAGOS" Type="Self.TBL_PAGOS" Multiplicity="*" />
@@ -674,13 +630,8 @@
           <EntitySet Name="TBL_IMPUESTOS" EntityType="Self.TBL_IMPUESTOS" />
           <EntitySet Name="TBL_PAGOS" EntityType="Self.TBL_PAGOS" />
           <EntitySet Name="TBL_PEDIDO" EntityType="Self.TBL_PEDIDO" />
-          <EntitySet Name="TBL_PRODUCTO" EntityType="Self.TBL_PRODUCTO" />
           <EntitySet Name="TBL_ROL" EntityType="Self.TBL_ROL" />
           <EntitySet Name="TBL_USUARIO" EntityType="Self.TBL_USUARIO" />
-          <AssociationSet Name="Relationship13" Association="Self.Relationship13">
-            <End Role="TBL_CATEGORIA" EntitySet="TBL_CATEGORIA" />
-            <End Role="TBL_PRODUCTO" EntitySet="TBL_PRODUCTO" />
-          </AssociationSet>
           <AssociationSet Name="Relationship14" Association="Self.Relationship14">
             <End Role="TBL_CLIENTE" EntitySet="TBL_CLIENTE" />
             <End Role="TBL_PEDIDO" EntitySet="TBL_PEDIDO" />
@@ -701,10 +652,6 @@
             <End Role="TBL_PEDIDO" EntitySet="TBL_PEDIDO" />
             <End Role="TBL_DETALLEPEDIDO" EntitySet="TBL_DETALLEPEDIDO" />
           </AssociationSet>
-          <AssociationSet Name="Relationship8" Association="Self.Relationship8">
-            <End Role="TBL_PRODUCTO" EntitySet="TBL_PRODUCTO" />
-            <End Role="TBL_DETALLEPEDIDO" EntitySet="TBL_DETALLEPEDIDO" />
-          </AssociationSet>
           <AssociationSet Name="Relationship17" Association="Self.Relationship17">
             <End Role="TBL_FORMAPAGO" EntitySet="TBL_FORMAPAGO" />
             <End Role="TBL_PAGOS" EntitySet="TBL_PAGOS" />
@@ -717,7 +664,59 @@
             <End Role="TBL_ROL" EntitySet="TBL_ROL" />
             <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
           </AssociationSet>
+          <EntitySet Name="TBL_PRODUCTO" EntityType="BDDCORDICARRITOModel.TBL_PRODUCTO" />
+          <AssociationSet Name="Relationship13" Association="BDDCORDICARRITOModel.Relationship13">
+            <End Role="TBL_CATEGORIA" EntitySet="TBL_CATEGORIA" />
+            <End Role="TBL_PRODUCTO" EntitySet="TBL_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship8" Association="BDDCORDICARRITOModel.Relationship8">
+            <End Role="TBL_PRODUCTO" EntitySet="TBL_PRODUCTO" />
+            <End Role="TBL_DETALLEPEDIDO" EntitySet="TBL_DETALLEPEDIDO" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="TBL_PRODUCTO">
+          <Key>
+            <PropertyRef Name="pro_id" />
+          </Key>
+          <Property Name="pro_id" Type="Int32" Nullable="false" />
+          <Property Name="pro_codigo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pro_nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="pro_preciocompra" Type="Decimal" Nullable="false" Precision="8" Scale="4" />
+          <Property Name="pro_precioventa" Type="Decimal" Nullable="false" Precision="8" Scale="4" />
+          <Property Name="pro_imagen" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="pro_descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="pro_stockminimo" Type="Int32" Nullable="false" />
+          <Property Name="pro_stockmaximo" Type="Int32" Nullable="false" />
+          <Property Name="pro_fechacreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pro_status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="cat_id" Type="Int16" />
+          <NavigationProperty Name="TBL_CATEGORIA" Relationship="BDDCORDICARRITOModel.Relationship13" FromRole="TBL_PRODUCTO" ToRole="TBL_CATEGORIA" />
+          <NavigationProperty Name="TBL_DETALLEPEDIDO" Relationship="BDDCORDICARRITOModel.Relationship8" FromRole="TBL_PRODUCTO" ToRole="TBL_DETALLEPEDIDO" />
+        </EntityType>
+        <Association Name="Relationship13">
+          <End Type="BDDCORDICARRITOModel.TBL_CATEGORIA" Role="TBL_CATEGORIA" Multiplicity="0..1" />
+          <End Type="BDDCORDICARRITOModel.TBL_PRODUCTO" Role="TBL_PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CATEGORIA">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="TBL_PRODUCTO">
+              <PropertyRef Name="cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship8">
+          <End Type="BDDCORDICARRITOModel.TBL_PRODUCTO" Role="TBL_PRODUCTO" Multiplicity="0..1" />
+          <End Type="BDDCORDICARRITOModel.TBL_DETALLEPEDIDO" Role="TBL_DETALLEPEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_PRODUCTO">
+              <PropertyRef Name="pro_id" />
+            </Principal>
+            <Dependent Role="TBL_DETALLEPEDIDO">
+              <PropertyRef Name="pro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -851,24 +850,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TBL_PRODUCTO">
-            <EntityTypeMapping TypeName="BDDCORDICARRITOModel.TBL_PRODUCTO">
-              <MappingFragment StoreEntitySet="TBL_PRODUCTO">
-                <ScalarProperty Name="pro_id" ColumnName="pro_id" />
-                <ScalarProperty Name="pro_codigo" ColumnName="pro_codigo" />
-                <ScalarProperty Name="pro_nombre" ColumnName="pro_nombre" />
-                <ScalarProperty Name="pro_preciocompra" ColumnName="pro_preciocompra" />
-                <ScalarProperty Name="pro_precioventa" ColumnName="pro_precioventa" />
-                <ScalarProperty Name="pro_imagen" ColumnName="pro_imagen" />
-                <ScalarProperty Name="pro_descripcion" ColumnName="pro_descripcion" />
-                <ScalarProperty Name="pro_stockminimo" ColumnName="pro_stockminimo" />
-                <ScalarProperty Name="pro_stockmaximo" ColumnName="pro_stockmaximo" />
-                <ScalarProperty Name="pro_fechacreacion" ColumnName="pro_fechacreacion" />
-                <ScalarProperty Name="pro_status" ColumnName="pro_status" />
-                <ScalarProperty Name="cat_id" ColumnName="cat_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TBL_ROL">
             <EntityTypeMapping TypeName="BDDCORDICARRITOModel.TBL_ROL">
               <MappingFragment StoreEntitySet="TBL_ROL">
@@ -890,6 +871,24 @@
                 <ScalarProperty Name="usu_status" ColumnName="usu_status" />
                 <ScalarProperty Name="usu_add" ColumnName="usu_add" />
                 <ScalarProperty Name="rol_id" ColumnName="rol_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_PRODUCTO">
+            <EntityTypeMapping TypeName="BDDCORDICARRITOModel.TBL_PRODUCTO">
+              <MappingFragment StoreEntitySet="TBL_PRODUCTO">
+                <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+                <ScalarProperty Name="pro_status" ColumnName="pro_status" />
+                <ScalarProperty Name="pro_fechacreacion" ColumnName="pro_fechacreacion" />
+                <ScalarProperty Name="pro_stockmaximo" ColumnName="pro_stockmaximo" />
+                <ScalarProperty Name="pro_stockminimo" ColumnName="pro_stockminimo" />
+                <ScalarProperty Name="pro_descripcion" ColumnName="pro_descripcion" />
+                <ScalarProperty Name="pro_imagen" ColumnName="pro_imagen" />
+                <ScalarProperty Name="pro_precioventa" ColumnName="pro_precioventa" />
+                <ScalarProperty Name="pro_preciocompra" ColumnName="pro_preciocompra" />
+                <ScalarProperty Name="pro_nombre" ColumnName="pro_nombre" />
+                <ScalarProperty Name="pro_codigo" ColumnName="pro_codigo" />
+                <ScalarProperty Name="pro_id" ColumnName="pro_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

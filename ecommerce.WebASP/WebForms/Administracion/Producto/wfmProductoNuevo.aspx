@@ -16,11 +16,27 @@
                 &nbsp;</td>
         </tr>
         <tr>
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td>
+                            <asp:ImageButton ID="imbNuevo" runat="server" ImageUrl="~/icons/icon_nuevo.png" Width="32px" Height="32px" OnClick="imbNuevo_Click" CausesValidation="false"/>
+                            <asp:LinkButton ID="lnkNuevo" runat="server" OnClick="lnkNuevo_Click" CausesValidation="false">Nuevo</asp:LinkButton>
+                        </td>
+                        <td>
+                            <asp:ImageButton ID="imbGuardar" runat="server" ImageUrl="~/icons/icon_guardar.png" Width="32px" Height="32px" OnClick="imbGuardar_Click"/>
+                            <asp:LinkButton ID="lnkGuardar" runat="server" OnClick="lnkGuardar_Click">Guardar</asp:LinkButton>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
             <td style="width: 142px">
                 Id
             </td>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="lblId"></asp:Label>
+                <asp:Label ID="lblId" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -30,6 +46,7 @@
             <td>
                 <%--<asp:DropDownList ID="ddlCategoria" runat="server"></asp:DropDownList>--%>
                 <Uc1:UC_Categoria ID="UC_Categoria1" runat="server"></Uc1:UC_Categoria>
+                
             </td>
         </tr>
         <tr>
@@ -38,6 +55,9 @@
             </td>
             <td>
                 <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
+                <strong>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Codigo campo Requerido" ControlToValidate="txtCodigo" ForeColor="#CC3300">*</asp:RequiredFieldValidator>
+                </strong>
             </td>
         </tr>
         <tr>
@@ -46,6 +66,7 @@
             </td>
             <td>
                 <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Nombre campo Requerido" ControlToValidate="txtNombre" ForeColor="#CC3300">*</asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -54,6 +75,7 @@
             </td>
             <td>
                 <asp:TextBox ID="txtPrecioCompra" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Precio compra campo Requerido" ControlToValidate="txtPrecioCompra" ForeColor="#CC3300">*</asp:RequiredFieldValidator>
             </td>
         </tr>
          <tr>
@@ -62,6 +84,7 @@
             </td>
             <td>
                 <asp:TextBox ID="txtPrecioVenta" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Precio venta campo Requerido" ControlToValidate="txtPrecioVenta" ForeColor="#CC3300">*</asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -78,6 +101,7 @@
             </td>
             <td>
                 <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
+                
             </td>
         </tr>
         <tr>
@@ -86,6 +110,7 @@
             </td>
             <td>
                 <asp:TextBox ID="txtStockMinimo" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Stock mínimo campo Requerido" ControlToValidate="txtStockMinimo" ForeColor="#CC3300">*</asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -94,6 +119,23 @@
             </td>
             <td>
                 <asp:TextBox ID="txtStockMaximo" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Stock máximo campo Requerido" ControlToValidate="txtStockMaximo" ForeColor="#CC3300">*</asp:RequiredFieldValidator>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="width: 142px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+
+        <tr>
+            <td style="width: 142px">
+                Mensaje</td>
+            <td>
+                <asp:Label ID="lblMensaje" runat="server" ForeColor="#CC3300"></asp:Label>
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="#CC3300" />
             </td>
         </tr>
 
