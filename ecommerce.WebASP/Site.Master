@@ -55,7 +55,13 @@
                         <li><a runat="server" href="~/About">Acerca de</a></li>
                         <li><a runat="server" href="~/Contact">Contacto</a></li>
                     </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li> <asp:ImageButton ID="imbCompras" runat="server" ImageUrl="~/icons/carrito2.png" Width="38px" Height="38px" OnClick="imbCompras_Click"/> </li>
+                        <li> <asp:Label ID="lblContador" runat="server" Text="0" ForeColor="White"></asp:Label></li>
+                    </ul>
                 </div>
+                
+
             </div>
         </div>
         <div class="container body-content">

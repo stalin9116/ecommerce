@@ -78,7 +78,48 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
                 _infoProducto.pro_codigo = txtCodigo.Text;
                 _infoProducto.pro_nombre = txtNombre.Text;
                 _infoProducto.pro_descripcion = txtDescripcion.Text;
-                _infoProducto.pro_imagen = "C:/imagen";
+
+                //imagen
+
+                if (FileUploadProducto.HasFile)
+                {
+                    if (!string.IsNullOrEmpty(txtCodigo.Text))
+                    {
+                        try
+                        {
+                            if (FileUploadProducto.PostedFile.ContentType == "image/png" || FileUploadProducto.PostedFile.ContentType == "image/jpeg")
+                            {
+                                if (FileUploadProducto.PostedFile.ContentLength < 100000)
+                                {
+                                    string nombreArchivo = txtCodigo.Text + ".jpg";
+                                    FileUploadProducto.SaveAs(Server.MapPath("~/images/products/") + nombreArchivo);
+                                }
+                                else
+                                {
+                                    lblMensaje.Text = "El tamaño máximo de la imagen es de 100 kb";
+                                }
+                            }
+                            else
+                            {
+                                lblMensaje.Text = "Solo se aceptan imagen de tipo Png y Jpeg";
+                            }
+                        }
+                        catch (Exception)
+                        {
+
+                            lblMensaje.Text = "Error al cargar la imagen de producto. ";
+                        }
+                    }
+                    else
+                    {
+                        lblMensaje.Text = "El campo codigo de producto es obligatorio para la carga de imagen";
+                    }
+                }
+
+
+                _infoProducto.pro_imagen = "~/images/products/" + txtCodigo.Text + ".jpg";
+
+
                 _infoProducto.pro_preciocompra = Convert.ToDecimal(txtPrecioCompra.Text);
                 _infoProducto.pro_precioventa = Convert.ToDecimal(txtPrecioVenta.Text);
                 _infoProducto.pro_stockminimo = Convert.ToInt32(txtStockMinimo.Text);
@@ -114,7 +155,47 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
                     _infoProducto.pro_codigo = txtCodigo.Text;
                     _infoProducto.pro_nombre = txtNombre.Text;
                     _infoProducto.pro_descripcion = txtDescripcion.Text;
-                    _infoProducto.pro_imagen = "C:/imagen";
+
+                    //imagen
+                    if (FileUploadProducto.HasFile)
+                    {
+                        if (!string.IsNullOrEmpty(txtCodigo.Text))
+                        {
+                            try
+                            {
+                                if (FileUploadProducto.PostedFile.ContentType == "image/png" || FileUploadProducto.PostedFile.ContentType == "image/jpeg")
+                                {
+                                    if (FileUploadProducto.PostedFile.ContentLength < 100000)
+                                    {
+                                        string nombreArchivo = txtCodigo.Text + ".jpg";
+                                        FileUploadProducto.SaveAs(Server.MapPath("~/images/products/") + nombreArchivo);
+                                        
+                                    }
+                                    else
+                                    {
+                                        lblMensaje.Text = "El tamaño máximo de la imagen es de 100 kb";
+                                    }
+                                }
+                                else
+                                {
+                                    lblMensaje.Text = "Solo se aceptan imagen de tipo Png y Jpeg";
+                                }
+                            }
+                            catch (Exception)
+                            {
+
+                                lblMensaje.Text = "Error al cargar la imagen de producto. ";
+                            }
+                        }
+                        else
+                        {
+                            lblMensaje.Text = "El campo codigo de producto es obligatorio para la carga de imagen";
+                        }
+                    }
+
+
+                    _infoProducto.pro_imagen = "~/images/products/" + txtCodigo.Text + ".jpg";
+
                     _infoProducto.pro_preciocompra = Convert.ToDecimal(txtPrecioCompra.Text);
                     _infoProducto.pro_precioventa = Convert.ToDecimal(txtPrecioVenta.Text);
                     _infoProducto.pro_stockminimo = Convert.ToInt32(txtStockMinimo.Text);
@@ -141,7 +222,7 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
             if (!string.IsNullOrEmpty(lblId.Text))
             {
                 updateProduct();
-                
+
             }
             else
             {
