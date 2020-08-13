@@ -1,8 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="wfmProductoNuevo.aspx.cs" Inherits="ecommerce.WebASP.WebForms.Administracion.Producto.wfmProductoNuevo" %>
 
 <%@ Register Src="~/UserControl/ucCategoria.ascx" TagName="UC_Categoria" TagPrefix="Uc1" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" EnableScriptGlobalization="true">
+    </asp:ToolkitScriptManager>
+    
     <br />
     <table>
         <tr>
@@ -75,6 +80,7 @@
             </td>
             <td>
                 <asp:TextBox ID="txtPrecioCompra" runat="server"></asp:TextBox>
+                <ajaxToolkit:CalendarExtender ID="txtPrecioCompra_CalendarExtender" runat="server" TargetControlID="txtPrecioCompra"></ajaxToolkit:CalendarExtender>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Precio compra campo Requerido" ControlToValidate="txtPrecioCompra" ForeColor="#CC3300">*</asp:RequiredFieldValidator>
             </td>
         </tr>

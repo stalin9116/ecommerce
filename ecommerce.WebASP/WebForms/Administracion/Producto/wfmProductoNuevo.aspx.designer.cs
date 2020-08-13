@@ -15,6 +15,15 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
     {
 
         /// <summary>
+        /// Control ToolkitScriptManager1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
+
+        /// <summary>
         /// Control imbNuevo.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,15 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrecioCompra;
+
+        /// <summary>
+        /// Control txtPrecioCompra_CalendarExtender.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender txtPrecioCompra_CalendarExtender;
 
         /// <summary>
         /// Control RequiredFieldValidator3.

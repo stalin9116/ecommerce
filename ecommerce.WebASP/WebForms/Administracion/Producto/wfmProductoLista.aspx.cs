@@ -104,25 +104,25 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
                         Task<List<TBL_PRODUCTO>> _taskProductos = Task.Run(() => LogicaProducto.getAllProduct());
                         _taskProductos.Wait();
                         _listaProducto = _taskProductos.Result;
-                        //loadProductos(_listaProducto);
+                        loadProductos(_listaProducto);
                         break;
                     case "C":
                         Task<List<TBL_PRODUCTO>> _taskProductos2 = Task.Run(() => LogicaProducto.searchProductXCode(datoaBuscar));
                         _taskProductos2.Wait();
                         _listaProducto = _taskProductos2.Result;
-                        //loadProductos(_listaProducto);
+                        loadProductos(_listaProducto);
                         break;
                     case "N":
                         Task<List<TBL_PRODUCTO>> _taskProductos3 = Task.Run(() => LogicaProducto.searchProductXNombre(datoaBuscar));
                         _taskProductos3.Wait();
                         _listaProducto = _taskProductos3.Result;
-                        //loadProductos(_listaProducto);
+                        loadProductos(_listaProducto);
                         break;
                     case "CA":
                         Task<List<TBL_PRODUCTO>> _taskProductos4 = Task.Run(() => LogicaProducto.searchProductXCategoria(datoaBuscar));
                         _taskProductos4.Wait();
                         _listaProducto = _taskProductos4.Result;
-                        //loadProductos(_listaProducto);
+                        loadProductos(_listaProducto);
                         break;
                 }
 
